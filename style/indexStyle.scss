@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin-top: 1em;
+    width: 100%;
+    font-family: 'Nanum Gothic',
+    sans-serif;
+}
+
+.highlighted {
+    font-weight: bold;
+}
+
+.container {
+    gap: 1em;
+    // width: 40%;
+    max-width: 460px;
+    margin: 0 auto;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .header {
+        h2 {
+            font-weight: 800;
+        }
+    }
+    
+    .header-text {
+        text-align: center;
+        font-size: 15px;
+        color: #494d52;        
+    }
+
+    .user-info {
+        width: 100%;
+        padding: 1em;
+        gap: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        align-items: center;
+        border-radius: 16px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+        .user-info-heading {
+            font-size: 18px;
+            margin: .8em 0;
+        }
+
+        .user-info-container {
+            display: flex;
+            gap: .4em;
+            width: 100%;
+            font-size: 16px;
+            flex-direction: column;
+            margin-left: auto;
+            margin-right: auto;
+            .name-section, .email-section, .id-section {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .logout, .delete{
+        width: 100%;
+
+        button {
+            width: 100%;
+            font-size: 13px;
+            position: relative;
+            color: white;
+            border-radius: 4px;
+            border: 0;
+            padding: 10px 0;
+            font-weight: 600;
+            transition: .4s;
+            cursor: pointer;
+            img {
+                position: absolute;
+                left: 10px;
+                top: auto;
+                bottom: auto;
+                width: 16px;
+            }
+
+        }
+    }
+    .logout {
+        button {
+            background-color: #4076e9;
+            
+            &:hover {
+                background-color: #0452f8;
+            }
+        }
+    }
+
+    .delete {
+        button {
+            background-color: rgb(233, 71, 71);
+            img {
+                top: 10px;
+                width: 15px;
+            }
+            
+            &:hover {
+                background-color: rgb(253, 23, 23);
+
+            }
+        }
+    }
+}

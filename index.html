@@ -12,7 +12,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-img" id="container-loading-img">
+        <img src="/images/spinner.svg" alt="Loading">
+    </div>
+    <div class="container" id="index-container">
         <div class="header">
             <h2 class="highlighted">You are logged in</h2>
         </div>
@@ -25,26 +28,37 @@
 
                 <div class="name-section">
                     <p class="highlighted">Name</p>
-                    <p>Rudra Kaniya</p>
+                    <p id="mName">Rudra Kaniya</p>
                 </div>
                 <div class="email-section">
                     <p class="highlighted">Email</p>
-                    <p>rudra.kaniya.rk@gmail.com</p>
+                    <p id="mEmail">rudra.kaniya.rk@gmail.com</p>
                 </div>
                 <div class="id-section">
                     <p class="highlighted">Id</p>
-                    <p>6017978eb4f2650015fd400a</p>
+                    <p id="mUID">6017978eb4f2650015fd400a</p>
                 </div>
             </div>
         </div>
         <div class="logout">
-            <button><img src="images/lock.svg" alt="Lock icon">Logout</button>
+            <button id="mLogout"><img src="images/lock.svg" alt="Lock icon">Logout</button>
         </div>
         <div class="delete">
-            <button><img src="images/delete.svg" alt="Lock icon">Delete Account</button>
+            <button id="mDeleteAccount"><img src="images/delete.svg" alt="Lock icon">Delete Account</button>
         </div>
 
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="/scripts/index.js"></script>
 </body>
 
 </html>

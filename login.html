@@ -8,14 +8,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="style/loginStyle.css" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="root">
+    <div class="container-img" id="container-loading-img">
+        <img src="/images/spinner.svg" alt="Loading">
+    </div>
+    <div class="root" id="login-root">
         <div class="container">
-            <div class="container-img" id="container-loading-img">
-                <img src="/images/spinner.svg" alt="Loading">
-            </div>
             <div class="container-welcome">
                 <h1>Login to your account</h1>
                 <p>Welcome Back</p>
@@ -25,13 +26,13 @@
                     <label>
                         <p>Email address</p>
                     </label>
-                    <input type="email" id="fname" name="Name" />
+                    <input type="email" id="mEmail" name="Name" />
 
                     <label>
                         <p>Password</p>
                     </label>
-                    <input type="password" id="fname" name="Name" />
-                    <button><img src="images/lock.svg" alt="Lock icon">Login</button>
+                    <input type="password" id="mPassword" name="Name" />
+                    <button id="mLogin"><img id="to-be-spinner" src="images/lock.svg" alt="Lock icon">Login</button>
                 </form>
                 <div class="form-divider">
                     <hr>
@@ -43,11 +44,22 @@
                     <button><img src="/images/facebook.svg" alt="login with facebook"></button>
                 </div>
                 <div class="container-new-account">
-                    <a href="">Don't have an account ?</a>
+                    <a id="need-account" href="">Don't have an account ?</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="scripts/login.js"></script>
 </body>
 
 </html>

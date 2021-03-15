@@ -9,6 +9,24 @@ body {
     margin: 0;
     background-color: #EFF6FF;
     font-family: 'Nanum Gothic', sans-serif;
+
+    .container-img {
+        position: absolute;
+        top: 46vh;
+        left: 46vw;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        transition: 1s;
+        height: 100%;
+
+        box-sizing: border-box;
+        // display: none;
+
+        img {
+            width: 3em;
+        }
+    }
 }
 
 .root {
@@ -23,14 +41,6 @@ body {
         justify-content: center;
         align-items: center;
 
-        .container-img {
-            height: auto;
-            box-sizing: border-box;
-            display: none;
-            img {
-                width: 3em;
-            }
-        }
 
         .container-welcome {
             display: flex;
@@ -86,6 +96,7 @@ body {
                         outline: none;
                         border: 1px solid #c3d9f8;
                         box-shadow: 0 0 0 .5pt #c3d9f8;
+                        // box-shadow: 0 0 0 .5pt #fc2c2c;
                     }
                 }
 

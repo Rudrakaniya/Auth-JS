@@ -5,9 +5,34 @@
 body {
     margin-top: 1em;
     width: 100%;
+    // height: 96vh;
+    background-color: #EFF6FF;
     font-family: 'Nanum Gothic',
     sans-serif;
+    position: relative;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    
+    .container-img {
+        position: absolute;
+        top: 46vh;
+        left: 46vw;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        transition: 1s;
+        height: 100%;
+        
+        box-sizing: border-box;
+        // display: none;
+
+        img {
+            width: 3em;
+        }
+    }
 }
+
 
 .highlighted {
     font-weight: bold;

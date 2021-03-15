@@ -6,7 +6,24 @@
 body {
   margin-top: 1em;
   width: 100%;
+  background-color: #EFF6FF;
   font-family: 'Nanum Gothic', sans-serif;
+  position: relative;
+}
+
+body .container-img {
+  position: absolute;
+  top: 46vh;
+  left: 46vw;
+  -webkit-transition: 1s;
+  transition: 1s;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body .container-img img {
+  width: 3em;
 }
 
 .highlighted {

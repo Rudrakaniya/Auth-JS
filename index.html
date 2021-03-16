@@ -7,7 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/indexStyle.css" />
+    <link rel="stylesheet" href="style/AlertBox/alertBoxModule.css" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <!-- <script async src="scripts/indexInitialization.js"> </script> -->
 
 </head>
 
@@ -41,24 +52,16 @@
             </div>
         </div>
         <div class="logout">
-            <button id="mLogout"><img src="images/lock.svg" alt="Lock icon">Logout</button>
+            <button id="mLogout"><img id="to-be-spinner-logout" src="images/lock.svg" alt="Lock icon">Logout</button>
         </div>
         <div class="delete">
-            <button id="mDeleteAccount"><img src="images/delete.svg" alt="Lock icon">Delete Account</button>
+            <button id="mDeleteAccount"><img id="to-be-spinner-delete" src="images/delete.svg" alt="Lock icon">Delete
+                Account</button>
         </div>
 
     </div>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
-    <script src="/scripts/index.js"></script>
+    <script src="/scripts/index.js" type="module"></script>
 </body>
 
 </html>

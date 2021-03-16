@@ -1,4 +1,4 @@
-document.getElementById("login-root").style.display = "none";
+import alertbox from "./alertBoxModule.js";
 
 var app_firebase = {};
 (function () {
@@ -52,6 +52,14 @@ function userLogin() {
     })
     .catch((e) => {
       console.log(e);
+      alertbox.show(e.code + "\n" + e.message);
+      setTimeout(() => {
+        mLogin.disabled = false;
+        mToBeSpinner.src = "images/lock.svg";
+        mToBeSpinner.style.height = "16px";
+        mToBeSpinner.style.top = "unset";
+        mToBeSpinner.style.left = "10px";
+      }, 2000);
     });
 }
 
@@ -82,15 +90,17 @@ function saveUser() {
 mLogin.addEventListener("click", (action) => {
   action.preventDefault();
   mToBeSpinner.src = "images/spinner_white.svg";
-  mToBeSpinner.style.height = "40px";
-  mToBeSpinner.style.top = "-2px";
-  mToBeSpinner.style.left = "1px";
+  mLogin.disabled = true;
+  setTimeout(() => {
+    mToBeSpinner.style.height = "40px";
+    mToBeSpinner.style.top = "-2px";
+    mToBeSpinner.style.left = "1px";
+  }, 50);
   userLogin();
 });
 
-mNeedAccount.addEventListener("click", () => {
-  // console.log("click");
-  // location.href = "/";
+function onSignup() {
+  location.href = "/signup.html";
+}
 
-  window.history.pushState("", "", "/signup.html");
-});
+mNeedAccount.addEventListener("click", onSignup);

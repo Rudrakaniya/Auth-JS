@@ -1,4 +1,4 @@
-document.getElementById("root").style.display = "none";
+import alertbox from "./alertBoxModule.js";
 
 var app_firebase = {};
 (function () {
@@ -27,6 +27,7 @@ const mConfPassword = document.getElementById("mConfPassword");
 const mCreateAccount = document.getElementById("mCreateAccount");
 const mCreateAccountSpinner = document.getElementById("to-be-spinner");
 const mAlreadyUser = document.getElementById("already-user");
+const mToBeSpinner = document.getElementById("to-be-spinner");
 
 let userName;
 let userEmail;
@@ -52,28 +53,51 @@ mConfPassword.addEventListener("keyup", () => {
 });
 
 function signUpUser() {
-  app_firebase
-    .auth()
-    .createUserWithEmailAndPassword(userEmail, userPassword)
-    .then((response) => {
-      console.log(response);
-      saveUser();
-      return response.user.updateProfile({
-        displayName: userName,
+  try {
+    app_firebase
+      .auth()
+      .createUserWithEmailAndPassword(userEmail, userPassword)
+      .then((response) => {
+        console.log(response);
+        saveUser();
+        return response.user.updateProfile({
+          displayName: userName,
+        });
+      })
+      // .then(() => {
+      //   window.location.replace("/index.html");
+      // })
+      .catch((e) => {
+        console.log(e);
+        alertbox.show(e.code + "\n" + e.message);
+        setTimeout(() => {
+          mCreateAccount.disabled = false;
+          mToBeSpinner.src = "images/lock.svg";
+          mToBeSpinner.style.height = "16px";
+          mToBeSpinner.style.top = "unset";
+          mToBeSpinner.style.left = "10px";
+        }, 2000);
       });
-    })
-    .then(() => {
-      window.location.replace("/index.html");
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+  } catch (err) {
+    console.log("From tryCatch");
+    console.log(err);
+    alertbox.show(err.code + "\n" + err.message);
+    setTimeout(() => {
+      mCreateAccount.disabled = false;
+      mToBeSpinner.src = "images/lock.svg";
+      mToBeSpinner.style.height = "16px";
+      mToBeSpinner.style.top = "unset";
+      mToBeSpinner.style.left = "10px";
+    }, 2000);
+  }
 }
 
 app_firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // console.log(user);
-    window.location.replace("/index.html");
+    setTimeout(() => {
+      window.location.replace("/index.html");
+    }, 1500);
   } else {
     document.getElementById("root").style.display = "flex";
     document.getElementById("container-loading-img").style.display = "none";
@@ -104,13 +128,15 @@ function saveUser() {
 }
 
 function submitBtnClicked() {
+  mCreateAccountSpinner.src = "images/spinner_white.svg";
   userName = mName.value;
   userEmail = mEmail.value;
-  mCreateAccountSpinner.src = "images/spinner_white.svg";
-  mCreateAccountSpinner.style.height = "40px";
-  mCreateAccountSpinner.style.top = "-2px";
-  mCreateAccountSpinner.style.left = "1px";
   mCreateAccount.disabled = true;
+  setTimeout(() => {
+    mCreateAccountSpinner.style.height = "40px";
+    mCreateAccountSpinner.style.top = "-2px";
+    mCreateAccountSpinner.style.left = "1px";
+  }, 50);
 
   signUpUser();
 }
@@ -121,11 +147,5 @@ mCreateAccount.addEventListener("click", (action) => {
 });
 
 mAlreadyUser.addEventListener("click", () => {
-  console.log("click");
-  // window.location.replace("/login.html");
-  // window.location.href = "/login.html";
-
-  window.history.pushState("", "", "/login.html");
+  location.href = "/login.html";
 });
-
-console.log("Ho ho ho!!");

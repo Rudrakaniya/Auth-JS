@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/loginStyle.css" />
+    <link rel="stylesheet" href="style/AlertBox/alertBoxModule.css" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 
 </head>
@@ -15,6 +16,7 @@
     <div class="container-img" id="container-loading-img">
         <img src="/images/spinner.svg" alt="Loading">
     </div>
+
     <div class="root" id="login-root">
         <div class="container">
             <div class="container-welcome">
@@ -44,11 +46,13 @@
                     <button><img src="/images/facebook.svg" alt="login with facebook"></button>
                 </div>
                 <div class="container-new-account">
-                    <a id="need-account" href="">Don't have an account ?</a>
+                    <a id="need-account" style="cursor: pointer;">Don't have an account ?</a>
                 </div>
             </div>
         </div>
     </div>
+    <div id="alert-area" class="alert-area"></div>
+
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
@@ -59,7 +63,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
-    <script src="scripts/login.js"></script>
+    <script src="scripts/login.js" type="module"></script>
 </body>
 
 </html>

@@ -40,10 +40,10 @@ body {
 
 .container {
     gap: 1em;
-    // width: 40%;
+    width: 90%;
     max-width: 460px;
     margin: 0 auto;
-    display: flex;
+    display: none;
     box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
@@ -109,10 +109,11 @@ body {
             cursor: pointer;
             img {
                 position: absolute;
+                // top: auto;
+                // bottom: auto;
+                // width: 16px;
                 left: 10px;
-                top: auto;
-                bottom: auto;
-                width: 16px;
+                height: 16px;
             }
 
         }
@@ -120,7 +121,6 @@ body {
     .logout {
         button {
             background-color: #4076e9;
-            
             &:hover {
                 background-color: #0452f8;
             }
@@ -130,11 +130,7 @@ body {
     .delete {
         button {
             background-color: rgb(233, 71, 71);
-            img {
-                top: 10px;
-                width: 15px;
-            }
-            
+        
             &:hover {
                 background-color: rgb(253, 23, 23);
 

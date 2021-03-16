@@ -1,4 +1,4 @@
-document.getElementById("index-container").style.display = "none";
+import alertbox from "./alertBoxModule.js";
 
 console.log(document.getElementById("index-container"));
 
@@ -27,6 +27,8 @@ const mEmail = document.getElementById("mEmail");
 const mUID = document.getElementById("mUID");
 const mLogout = document.getElementById("mLogout");
 const mDeleteAccount = document.getElementById("mDeleteAccount");
+const mToBeSpinnerLogout = document.getElementById("to-be-spinner-logout");
+const mToBeSpinnerDelete = document.getElementById("to-be-spinner-delete");
 
 let userID;
 
@@ -46,16 +48,32 @@ app_firebase.auth().onAuthStateChanged((user) => {
 });
 
 mLogout.addEventListener("click", () => {
-  app_firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      window.location.replace("/login.html");
-    });
+  mToBeSpinnerLogout.src = "images/spinner_white.svg";
+  mLogout.disabled = true;
+  setTimeout(() => {
+    mToBeSpinnerLogout.style.height = "40px";
+    mToBeSpinnerLogout.style.top = "-2px";
+    mToBeSpinnerLogout.style.left = "1px";
+  }, 50);
+  setTimeout(() => {
+    app_firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        window.location.replace("/login.html");
+      });
+  }, 1000);
 });
 
 mDeleteAccount.addEventListener("click", () => {
-  console.log("click");
+  mToBeSpinnerDelete.src = "images/spinner_white.svg";
+  mDeleteAccount.disabled = true;
+  setTimeout(() => {
+    mToBeSpinnerDelete.style.height = "40px";
+    mToBeSpinnerDelete.style.top = "-2px";
+    mToBeSpinnerDelete.style.left = "1px";
+  }, 50);
+
   app_firebase
     .auth()
     .currentUser.delete()
@@ -64,5 +82,13 @@ mDeleteAccount.addEventListener("click", () => {
     })
     .catch((error) => {
       console.log("Error deleting user:", error);
+      alertbox.show(e.code + "\n" + e.message);
+      setTimeout(() => {
+        mCreateAccount.disabled = false;
+        mToBeSpinnerDelete.src = "images/lock.svg";
+        mToBeSpinnerDelete.style.height = "16px";
+        mToBeSpinnerDelete.style.top = "unset";
+        mToBeSpinnerDelete.style.left = "10px";
+      }, 2000);
     });
 });

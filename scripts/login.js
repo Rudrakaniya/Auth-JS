@@ -25,6 +25,8 @@ const mPassword = document.getElementById("mPassword");
 const mLogin = document.getElementById("mLogin");
 const mNeedAccount = document.getElementById("need-account");
 const mToBeSpinner = document.getElementById("to-be-spinner");
+const mSignInWithGoogleBtn = document.getElementById("signin-with-google");
+const mSignInWithFacebookBtn = document.getElementById("signin-with-facebook");
 
 let userEmail;
 let userPassword;
@@ -104,3 +106,35 @@ function onSignup() {
 }
 
 mNeedAccount.addEventListener("click", onSignup);
+
+function signInWithGoogle() {
+  const googleProvider = new app_firebase.auth.GoogleAuthProvider();
+  console.log(googleProvider);
+  app_firebase
+    .auth()
+    .signInWithPopup(googleProvider)
+    .then(() => {
+      console.log("Happy");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+mSignInWithGoogleBtn.addEventListener("click", signInWithGoogle);
+
+function signInWithFacebook() {
+  const facebookProvider = new app_firebase.auth.FacebookAuthProvider();
+  // console.log(googleProvider);
+  app_firebase
+    .auth()
+    .signInWithPopup(facebookProvider)
+    .then(() => {
+      console.log("Happy");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+mSignInWithFacebookBtn.addEventListener("click", signInWithFacebook);

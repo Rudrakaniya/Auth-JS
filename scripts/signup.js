@@ -28,6 +28,8 @@ const mCreateAccount = document.getElementById("mCreateAccount");
 const mCreateAccountSpinner = document.getElementById("to-be-spinner");
 const mAlreadyUser = document.getElementById("already-user");
 const mToBeSpinner = document.getElementById("to-be-spinner");
+const mSignUpWithGoogleBtn = document.getElementById("signup-with-google");
+const mSignUpWithFacebookBtn = document.getElementById("signup-with-facebook");
 
 let userName;
 let userEmail;
@@ -149,3 +151,35 @@ mCreateAccount.addEventListener("click", (action) => {
 mAlreadyUser.addEventListener("click", () => {
   location.href = "/login.html";
 });
+
+function signUpWithGoogle() {
+  const googleProvider = new app_firebase.auth.GoogleAuthProvider();
+  console.log(googleProvider);
+  app_firebase
+    .auth()
+    .signInWithPopup(googleProvider)
+    .then(() => {
+      console.log("Happy");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+mSignUpWithGoogleBtn.addEventListener("click", signUpWithGoogle);
+
+function signUpWithFacebook() {
+  const facebookProvider = new app_firebase.auth.FacebookAuthProvider();
+  // console.log(googleProvider);
+  app_firebase
+    .auth()
+    .signInWithPopup(facebookProvider)
+    .then(() => {
+      console.log("Happy");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+mSignUpWithFacebookBtn.addEventListener("click", signUpWithFacebook);

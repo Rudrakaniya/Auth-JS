@@ -95,7 +95,7 @@ mLogin.addEventListener("click", (action) => {
     mToBeSpinner.style.height = "40px";
     mToBeSpinner.style.top = "-2px";
     mToBeSpinner.style.left = "1px";
-  }, 50);
+  }, 70);
   userLogin();
 });
 

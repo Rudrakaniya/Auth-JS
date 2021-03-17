@@ -136,7 +136,7 @@ function submitBtnClicked() {
     mCreateAccountSpinner.style.height = "40px";
     mCreateAccountSpinner.style.top = "-2px";
     mCreateAccountSpinner.style.left = "1px";
-  }, 50);
+  }, 70);
 
   signUpUser();
 }
